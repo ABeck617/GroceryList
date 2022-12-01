@@ -22,7 +22,10 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         // Share
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .share, target: self, action: #selector(shareTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
+        // trash
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(resetList))
         
         
         
@@ -34,6 +37,10 @@ class ViewController: UITableViewController {
     }
     
     @objc func shareTapped() {
+        
+    }
+    
+    @objc func resetList() {
         
     }
 }

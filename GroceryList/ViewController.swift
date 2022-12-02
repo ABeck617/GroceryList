@@ -30,6 +30,21 @@ class ViewController: UITableViewController {
         
         
     }
+    
+    
+    // insert tableview
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        GroceryList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
+        
+        var context = cell.defaultContentConfiguration()
+        context.text = GroceryList[indexPath.row]
+        return cell
+    }
 
     @objc func addTapped() {
         let ac = UIAlertController(title: "Add Grocery Item", message: nil, preferredStyle: .alert)

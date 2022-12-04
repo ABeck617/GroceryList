@@ -9,17 +9,18 @@ import UIKit
 
 class ViewController: UITableViewController {
     var GroceryList = [String]()
-
+    let cellid = "cellid"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         
-        title = "Gorcery List"
+        title = "Grocery List"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // add
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(save))
         
         // Share
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
@@ -27,28 +28,32 @@ class ViewController: UITableViewController {
         // trash
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(resetList))
         
-        
-        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellid)
     }
     
     
     // insert tableview
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        GroceryList.count
+       return GroceryList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
         
-        var context = cell.defaultContentConfiguration()
-        context.text = GroceryList[indexPath.row]
+//        var context = cell.defaultContentConfiguration()
+//        context.text = GroceryList[indexPath.row]
         return cell
     }
-
-    @objc func addTapped() {
-        let ac = UIAlertController(title: "Add Grocery Item", message: nil, preferredStyle: .alert)
-        ac.addTextField()
+    
+    @objc func save() {
+//        let ac = UIAlertController(title: "Add New Grocery Item", message: nil, preferredStyle: .alert)
+//        // Adds a new text box to the alert controller
+//        ac.addTextField()
+//
+//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in}))
+//
+        
     }
     
     @objc func shareTapped() {
@@ -58,5 +63,6 @@ class ViewController: UITableViewController {
     @objc func resetList() {
         
     }
+    
+    
 }
-

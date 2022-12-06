@@ -20,10 +20,10 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // add
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(save))
         
         // Share
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         
         // trash
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(resetList))
@@ -47,19 +47,16 @@ class ViewController: UITableViewController {
     }
     
     @objc func save() {
-//        let ac = UIAlertController(title: "Add New Grocery Item", message: nil, preferredStyle: .alert)
-//        // Adds a new text box to the alert controller
-//        ac.addTextField()
-//
-//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in}))
+//       // adding a new AlertController
+        let alertController = UIAlertController(title: "Add New Grocery Item", message: "Please add new Item", preferredStyle: .alert)
 //
         
     }
     
-    @objc func shareTapped() {
-        
-    }
-    
+//    @objc func shareTapped() {
+//
+//    }
+//
     @objc func resetList() {
         
     }

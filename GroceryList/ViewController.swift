@@ -49,6 +49,19 @@ class ViewController: UITableViewController {
     @objc func save() {
 //       // adding a new AlertController
         let alertController = UIAlertController(title: "Add New Grocery Item", message: "Please add new Item", preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [
+            unowned self] action in
+            guard let textField = alertController.textFields?.first, let sthToadd = textField.text else { return }
+            self.GroceryList.append(sthToadd)
+            self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
 //
         
     }

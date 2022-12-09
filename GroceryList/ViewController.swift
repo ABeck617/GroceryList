@@ -41,10 +41,19 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
         
+        let GroceryList = GroceryList[indexPath.row]
+        
+        cell.textLabel?.text = GroceryList
+        cell.textLabel?.textColor = UIColor.red
+        
 //        var context = cell.defaultContentConfiguration()
 //        context.text = GroceryList[indexPath.row]
         return cell
     }
+    
+    
+    
+    // Create a Delete cell
     
     @objc func save() {
 //       // adding a new AlertController
